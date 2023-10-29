@@ -18,7 +18,7 @@ def parse_2(query: str) -> dict:
     # print(res)
     for key, value in res.items():
         res[key] = value[0]  # first value
-    return res
+    return res  # or return {key: values[0] for key, values in query_dict.items()}
 
 
 if __name__ == "__main__":
