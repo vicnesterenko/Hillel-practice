@@ -8,9 +8,9 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Contact</th>
+          <th><a href="{{ url_for('index', sort_by='uid', sort_dir='asc') }}">ID</a></th>
+          <th><a href="{{ url_for('index', sort_by='uname', sort_dir='asc') }}">Name</a></th>
+          <th><a href="{{ url_for('index', sort_by='contact', sort_dir='asc') }}">Contact</a></th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>

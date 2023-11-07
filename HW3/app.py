@@ -4,17 +4,30 @@ from create_db import create_table
 
 app = Flask(__name__)
 create_table()
+valid_sort_criteria = ['uid', 'uname', 'contact']
 
 
 @app.route("/")
 @app.route("/index")
 def index():
+    sort_by = request.args.get('sort_by', 'uid')
+    sort_dir = request.args.get('sort_dir', 'asc')
+
+    if sort_by not in valid_sort_criteria:
+        sort_by = 'uid'
+    if sort_dir not in ['asc', 'desc']:
+        sort_dir = 'asc'
+
     con = sql.connect("phones.db")
     con.row_factory = sql.Row
     cur = con.cursor()
-    cur.execute("select * from users")
+
+    sql_query = f"SELECT * FROM users ORDER BY {sort_by} {sort_dir}"
+    cur.execute(sql_query)
+
     data = cur.fetchall()
-    return render_template("index.html", datas=data)
+
+    return render_template("index.html", datas=data, sort_by=sort_by, sort_dir=sort_dir)
 
 
 @app.route("/add_user", methods=['POST', 'GET'])
