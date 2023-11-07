@@ -1,8 +1,3 @@
-### Homework 1
-Folder `HW3`
-
-README File:
-
 **Flask Phone Book App**
 
 **Description:**
