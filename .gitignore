@@ -1,4 +1,6 @@
 env/
 venv/
 phones.db
-__pycache__
+__pycache__/
+.pyc
+*.pyc
