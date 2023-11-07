@@ -4,3 +4,5 @@ phones.db
 __pycache__/
 .pyc
 *.pyc
+.DS_Store
+.idea
